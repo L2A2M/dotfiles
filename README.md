@@ -1,3 +1,6 @@
+# Enoch's Comments
+* 8/12/17 The install has to be based on ~/dotfile, which means that I need to clone at the default directory.
+
 # Awesome Dotfiles
 
 Simple, but extensive customization of ZSH, TMUX, and Vim. 
