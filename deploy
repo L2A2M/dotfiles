@@ -76,6 +76,9 @@ echo
 check_for_software tmux
 echo
 
+echo "Install Tmux Plugin Manager.."
+git clone https://github.com/tmux-plugins/tpm ~/dotfiles/tmux/plugins/tpm
+
 check_default_shell
 
 echo
