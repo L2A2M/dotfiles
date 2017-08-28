@@ -18,6 +18,9 @@
 	nnoremap <C-c> :set norelativenumber<CR>:set nonumber<CR>:echo "Line numbers turned off."<CR>
 	nnoremap <C-n> :set relativenumber<CR>:set number<CR>:echo "Line numbers turned on."<CR>
 
+	" Turn on nerdtree
+	map <C-D> :NERDTreeToggle<CR>
+
 	nnoremap n nzzzv
 	nnoremap N Nzzzv
 
@@ -35,7 +38,6 @@
 
 	nnoremap vv 0v$
 
-	set listchars=tab:\|\ 
 	nnoremap <leader><tab> :set list!<cr>
 	set pastetoggle=<F2>
 	set mouse=a
@@ -95,3 +97,70 @@
 	"Swap line
 	"Insert blank below and above
 
+
+" VIM-PLUG:
+" Specify a directory for plugins
+" - Avoid using standard Vim directory names like 'plugin'
+call plug#begin('~/.vim/plugged')
+
+" Make sure you use single quotes
+
+" Shorthand notation; fetches https://github.com/junegunn/vim-easy-align
+"Plug 'junegunn/vim-easy-align'
+
+" Any valid git URL is allowed
+"Plug 'https://github.com/junegunn/vim-github-dashboard.git'
+
+" Multiple Plug commands can be written in a single line using | separators
+"Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
+
+" On-demand loading
+"Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
+" For loading NERDtree automatically when only vim is invoked.
+Plug 'scrooloose/nerdtree'
+
+" Display the indention levels with thin vertical lines
+Plug 'Yggdroot/indentLine'
+"Plug 'tpope/vim-fireplace', { 'for': 'clojure' }
+
+" Status/tabline plugin
+Plug 'vim-airline/vim-airline'
+
+" Because my FZF doesn't work well, so
+Plug 'ctrlpvim/ctrlp.vim'
+
+" Using a non-master branch
+"Plug 'rdnetto/YCM-Generator', { 'branch': 'stable' }
+
+" Using a tagged release; wildcard allowed (requires git 1.9.2 or above)
+"Plug 'fatih/vim-go', { 'tag': '*' }
+
+" Plugin options
+"Plug 'nsf/gocode', { 'tag': 'v.20150303', 'rtp': 'vim' }
+
+" Plugin outside ~/.vim/plugged with post-update hook
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+
+" Unmanaged plugin (manually installed and updated)
+"Plug '~/my-prototype-plugin'
+
+" Initialize plugin system
+call plug#end()
+
+" Open a NERDTree automatically when vim starts up itself: $ vim <CR>
+autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+
+" Quit editing faster
+nnoremap <C-q> :q!<CR>
+nnoremap <C-g> :CtrlPLine<CR>
+
+" Show code indented with tabs
+":set list lcs=tab:\|\ (here is a space)
+"let &lcs='tab:| ' <== does NOT work :-(
+set list listchars=tab:\|\ 
+
+" These patterns are ignored when expanding wildcards, completing file or
+" directory names
+set wildignore+=*.o,*.bmp,*.gif,*.ico,*.jpg,*.png
+set wildignore+=.git,*.swp,*.tmp,*~
