@@ -167,3 +167,7 @@ set list listchars=tab:\|\
 " directory names
 set wildignore+=*.o,*.bmp,*.gif,*.ico,*.jpg,*.png
 set wildignore+=.git,*.swp,*.tmp,*~
+
+" Set default colorscheme
+colorscheme molokai_dark
+
