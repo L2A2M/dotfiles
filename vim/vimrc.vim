@@ -129,6 +129,9 @@ Plug 'vim-airline/vim-airline'
 " Because my FZF doesn't work well, so
 Plug 'ctrlpvim/ctrlp.vim'
 
+" Because vim colorschem is important to me
+Plug 'flazz/vim-colorschemes'
+
 " Using a non-master branch
 "Plug 'rdnetto/YCM-Generator', { 'branch': 'stable' }
 
