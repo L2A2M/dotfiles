@@ -95,6 +95,7 @@ if echo "$answer" | grep -iq "^y" ;then
 	mv ~/.tmux.conf ~/.tmux.conf.old
 	mv ~/.vimrc ~/.vimrc.old
 else
+	# Note that -e may not work in some systems
 	echo -e "\nNot backing up old dotfiles."
 fi
 
@@ -103,7 +104,9 @@ printf "so $HOME/dotfiles/vim/vimrc.vim" > ~/.vimrc
 printf "source-file $HOME/dotfiles/tmux/tmux.conf" > ~/.tmux.conf
 
 # Download the latest vim-plug and overwrite the existing file
-echo -e "\nDownload vim-plug.."
+# echo -e "\nDownload vim-plug.." <== why -e doesn't work here :-(
+echo
+echo "Download vim-plug.."
 curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
