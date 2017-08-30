@@ -162,7 +162,10 @@ autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 
 " Quit editing faster
 nnoremap <C-q> :q!<CR>
+" Get into CtrlP line mode for grep-like function
 nnoremap <C-g> :CtrlPLine<CR>
+" Cycle thru windows -- mainly to take care iOS Coda issue with ^w
+nnoremap <leader>w <C-w>w
 
 " Show code indented with tabs
 ":set list lcs=tab:\|\ (here is a space)
