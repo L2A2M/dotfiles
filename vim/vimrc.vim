@@ -41,6 +41,8 @@
 	nnoremap <leader><tab> :set list!<cr>
 	set pastetoggle=<F2>
 	set mouse=a
+	" Need the following line in tmux to resize windows
+	set ttymouse=xterm2
 	set incsearch
 
 " Language Specific
