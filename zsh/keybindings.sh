@@ -38,7 +38,9 @@
 		zle accept-line
 	}
 	zle -N edit_and_run
-	bindkey "^v" edit_and_run
+#	bindkey "^v" edit_and_run
+#   Because it conflicts with 'paste' operation
+	bindkey "^e" edit_and_run
 
 # LS
 	function ctrl_l() {
